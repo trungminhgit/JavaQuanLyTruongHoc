@@ -142,8 +142,8 @@ const Home = () => {
     const openModalOrder = (room) => {
         setSelectedRoom(room);
         setShowModalOrder(true);
-        setSeatNum("");
         setStartTime("");
+        setFinishTime("");
         setSeatNum("");
     }
 
@@ -174,7 +174,7 @@ const Home = () => {
             {showAlertDelete && <Alert variant="danger">Xóa phòng thành công</Alert>}
             {showAlertOrder && <Alert variant="danger">Vui lòng kiểm tra dữ liệu nhập</Alert>}
             {showAlert && <Alert variant="danger">Bạn đã đặt phòng này rồi</Alert>}
-            <h2 className="text-center text-info">DANH MỤC PHÒNG HỌC</h2>
+            <h2 className="text-center text-dark">DANH MỤC PHÒNG HỌC</h2>
             <Row>
                 {rooms.map(r => {
                     let url = `/rooms/${r.roomID}`;

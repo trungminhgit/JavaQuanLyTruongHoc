@@ -79,7 +79,7 @@ const Admin = () => {
         <div>
             {showAlertDelete && <Alert variant="danger">Xóa người dùng thành công</Alert>}
             
-            <h2 className="text-center text-info">DANH SÁCH NGƯỜI DÙNG</h2>
+            <h2 className="text-center text-dark">DANH SÁCH NGƯỜI DÙNG</h2>
             <Table striped bordered hover>
             <thead>
                 <tr style={{ textAlign: 'center', verticalAlign: 'middle' }}>

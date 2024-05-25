@@ -14,6 +14,7 @@ import com.doannganh.response.ResponseObject;
 import java.util.Map;
 import org.hibernate.engine.spi.Resolution;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import static org.springframework.http.ResponseEntity.status;
@@ -49,7 +50,13 @@ public class AuthenticationController {
             produces = {MediaType.APPLICATION_JSON_VALUE})
     @CrossOrigin
     public ResponseEntity<ResponseObject> register(@RequestParam Map<String, String> params, @RequestPart MultipartFile avatar) {
-        return ResponseEntity.ok(authService.register(params, avatar));
+        ResponseObject responseObject = authService.register(params, avatar);
+
+        if ("BAD REQUEST".equals(responseObject.getStatus())) {
+            return ResponseEntity.status(400).body(responseObject);
+        }
+
+        return ResponseEntity.ok(responseObject);
     }
 
     @PostMapping("/login")

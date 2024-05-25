@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2024 at 09:48 AM
+-- Generation Time: May 25, 2024 at 05:23 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -57,11 +57,12 @@ INSERT INTO `comment` (`comment_id`, `create_date`, `description`, `user_id`, `r
 (16, '2024-04-29 00:10:55', 'Phòng LAP xịn xò, phục vụ tốt nhu cầu thực hành', 4, 26),
 (17, '2024-04-29 00:10:55', 'Phòng học toáng mát sạch sẽ', 3, 27),
 (23, '2024-04-29 00:10:55', 'Phòng học đẹp, mùi dễ chịu, đầy đủ tiện nghi', 3, 57),
-(24, '2024-04-29 00:10:55', 'Phòng học đẹp, mùi dễ chịu, đầy đủ tiện nghi', 4, 21),
 (28, '2024-04-29 00:10:55', 'Phòng họp sạch sẽ, phù hợp với yêu cầu', 3, 30),
 (29, '2024-04-29 00:10:55', 'Phòng hiện đại', 3, 29),
 (30, '2024-04-29 00:10:55', 'Phòng tốt, sẽ đặt phòng thêm nhiều lần nữa', 3, 14),
-(31, '2024-04-29 00:10:55', 'Phòng học hiện đại', 6, 28);
+(31, '2024-04-29 00:10:55', 'Phòng học hiện đại', 6, 28),
+(32, '2024-05-25 21:23:57', 'Phòng rất đẹp', 3, 29),
+(34, '2024-05-25 22:20:39', 'Phòng học hiện đại\n', 2, 57);
 
 -- --------------------------------------------------------
 
@@ -103,7 +104,10 @@ INSERT INTO `receipt` (`receipt_id`, `create_date`, `user_id`) VALUES
 (50, '2024-05-10 04:40:37', 3),
 (51, '2024-05-10 04:42:25', 3),
 (52, '2024-05-10 04:43:48', 3),
-(53, '2024-05-10 04:45:46', 3);
+(53, '2024-05-10 04:45:46', 3),
+(54, '2024-05-24 23:25:00', 2),
+(55, '2024-05-24 23:25:03', 2),
+(56, '2024-05-24 23:25:06', 2);
 
 -- --------------------------------------------------------
 
@@ -158,7 +162,10 @@ INSERT INTO `receipt_detail` (`receipt_detail_id`, `start_time`, `finish_time`, 
 (32, '2024-05-10 06:41:00', '2024-05-10 07:41:00', 300000, 4, 30, 50),
 (33, '2024-05-10 05:42:00', '2024-05-10 06:42:00', 150000, 8, 57, 51),
 (34, '2024-05-10 06:44:00', '2024-05-10 08:44:00', 300000, 7, 57, 52),
-(35, '2024-05-11 07:45:00', '2024-05-11 09:45:00', 300000, 8, 26, 53);
+(35, '2024-05-11 07:45:00', '2024-05-11 09:45:00', 300000, 8, 26, 53),
+(36, '2024-05-24 23:23:00', '2024-05-24 23:50:00', 135000, 8, 29, 54),
+(37, '2024-05-24 23:23:00', '2024-05-24 23:50:00', 135000, 8, 29, 55),
+(38, '2024-05-24 23:23:00', '2024-05-24 23:50:00', 135000, 8, 29, 56);
 
 -- --------------------------------------------------------
 
@@ -273,7 +280,7 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `last_name`, `first_name`
 (17, 'tranvannghia', '$2a$10$vjfNVBOp0/JtlroPMynq6ujG.FpfB0C8Rxghf2/BfMzo30wLityuS', 'Trần Văn ', 'Nghĩa', '0123456789', 'nghia@gmail.com', 'https://res.cloudinary.com/dchkh7d18/image/upload/v1714586661/nam1_liwqst_debo4w.png', 2),
 (21, 'nguyenanhtuyet', '$2a$10$ngtifhusSOz3KJXxSbDrwuBm3HC4bNyyXv2OVfwkBk.E1lljN1KCK', 'Nguyễn Ánh', 'Tuyết', '0123456789', 'tuyetmai@gmail.com', 'https://res.cloudinary.com/dchkh7d18/image/upload/v1714658382/rcqabop7jubyvnwow48j.png', 2),
 (22, 'minhthunguyen', '$2a$10$cgioDaaeILfMvqJMEKLZYuxt5ZalsKTzWgraECNa/7/GXqdLmvTQu', 'Nguyễn Thị Minh', 'Thư', '0123456789', 'minhthu@gmail.com', 'https://res.cloudinary.com/dchkh7d18/image/upload/v1714666464/ncxeztphf3qofhbhry6b.png', 2),
-(23, 'nguyenvantuan', '$2a$10$OilI9FqutCl5HSgJNAxk..KrLDEQ38hTbAv3shcLocRa5LHXNR0bO', 'Nguyễn Văn ', 'Tuấn', '0123456789', 'vantuan@gmail.com', 'https://res.cloudinary.com/dchkh7d18/image/upload/v1715132567/omludwxwnn1eg13avrpy.png', 2);
+(23, 'nguyenvantuan', '$2a$10$MlRUiESvXjWcQhJY93JvauoTCahU3wLK.ItOJ7jnrVOvbO2wR72nS', 'Nguyễn Văn ', 'Tuấn', '0123456789', 'vantuan@gmail.com', 'https://res.cloudinary.com/dchkh7d18/image/upload/v1716566296/xzlswkgb24atptwcfr3y.png', 2);
 
 --
 -- Indexes for dumped tables
@@ -336,19 +343,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `receipt`
 --
 ALTER TABLE `receipt`
-  MODIFY `receipt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `receipt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `receipt_detail`
 --
 ALTER TABLE `receipt_detail`
-  MODIFY `receipt_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `receipt_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -360,7 +367,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `room_type`
@@ -372,7 +379,7 @@ ALTER TABLE `room_type`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables
@@ -382,21 +389,21 @@ ALTER TABLE `user`
 -- Constraints for table `comment`
 --
 ALTER TABLE `comment`
-  ADD CONSTRAINT `FK_COMMENT_ROOM` FOREIGN KEY (`room_id`) REFERENCES `room` (`room_id`),
-  ADD CONSTRAINT `FK_COMMENT_USER` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
+  ADD CONSTRAINT `FK_COMMENT_ROOM` FOREIGN KEY (`room_id`) REFERENCES `room` (`room_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_COMMENT_USER` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `receipt`
 --
 ALTER TABLE `receipt`
-  ADD CONSTRAINT `FK_RECEIPT_USER` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
+  ADD CONSTRAINT `FK_RECEIPT_USER` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `receipt_detail`
 --
 ALTER TABLE `receipt_detail`
-  ADD CONSTRAINT `FK_RECEIPTDETAIL_RECEIPT` FOREIGN KEY (`receipt_id`) REFERENCES `receipt` (`receipt_id`),
-  ADD CONSTRAINT `FK_RECEIPTDETAIL_ROOM` FOREIGN KEY (`room_id`) REFERENCES `room` (`room_id`);
+  ADD CONSTRAINT `FK_RECEIPTDETAIL_RECEIPT` FOREIGN KEY (`receipt_id`) REFERENCES `receipt` (`receipt_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_RECEIPTDETAIL_ROOM` FOREIGN KEY (`room_id`) REFERENCES `room` (`room_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `room`

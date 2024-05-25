@@ -54,9 +54,8 @@ const Header = () => {
     if (roomTypes === null)
         return <CustomSpinner />;
 
-    // let targetRoute = location.pathname.includes("admin") ? "/admin" : "/";
     return (
-        <Navbar expand="lg" className="bg-body-tertiary container-fluid" style={{ width: '100%' }}>
+        <Navbar expand="lg" className="container-fluid" style={{ width: '100%' }}>
             <Container>
                 <Navbar.Brand href="/" style={{ fontSize: '36px', color: 'Highlight' }}><span style={{ fontSize: '1.5em' }}>🏫</span> OU Management</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -70,10 +69,10 @@ const Header = () => {
                             })}
                         </NavDropdown>
                         {user === null ? <>
-                            <Link className="nav-link text-danger" to="/login">&#128589;Đăng nhập</Link>
-                            <Link className="nav-link text-danger" to="/register">&#9997;Đăng ký</Link>
+                            <Link className="nav-link text-dark" to="/login">&#128589;Đăng nhập</Link>
+                            <Link className="nav-link text-dark" to="/register">&#9997;Đăng ký</Link>
                         </> : <>
-                            <Link className="nav-link text-danger" to="/" style={{ display: 'flex', alignItems: 'center', marginLeft: '25px' }} >
+                            <Link className="nav-link text-dark" to="/" style={{ display: 'flex', alignItems: 'center', marginLeft: '25px' }} >
                                 Chào, {user.firstName}
                                 <img
                                     src={user.avatar} // Sử dụng đường dẫn hoặc hình ảnh mặc định
@@ -94,7 +93,7 @@ const Header = () => {
                                 <Link className="dropdown-item" to="/" onClick={logout} key="userDetail">Đăng xuất</Link>
                             </NavDropdown>
                         </>}
-                        <Link className="nav-link text-danger" to="/cart">&#128722; <Badge bg="danger">{cartCounter}</Badge></Link>
+                        <Link className="nav-link text-danger" to="/cart">🗃️ <Badge bg="danger">{cartCounter}</Badge></Link>
                     </Nav>
                 </Navbar.Collapse>
                 <Form onSubmit={search} inline="true">

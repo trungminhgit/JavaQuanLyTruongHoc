@@ -79,36 +79,44 @@ const Login = () => {
         setShowPassword(!showPassword);
     };
 
-    return <>
-        <h1 className="text-center text-info">ĐĂNG NHẬP</h1>
-
-
-        <Form onSubmit={login}>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Tên đăng nhập</Form.Label>
-                <Form.Control value={username} onChange={e => setUserName(e.target.value)} type="text" placeholder="Tên đăng nhập" isInvalid={!!loginErrors.username} />
-                <Form.Control.Feedback type="invalid">
-                    {loginErrors.username}
-                </Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Mật khẩu</Form.Label>
-                <Form.Control type={showPassword ? "text" : "password"} value={password} onChange={e => setPassword(e.target.value)}  placeholder="Mật khẩu" isInvalid={!!loginErrors.password} />
-                <Form.Control.Feedback type="invalid">
-                    {loginErrors.password}
-                </Form.Control.Feedback>
-                <Form.Check
-                    type="checkbox"
-                    label="Hiện mật khẩu"
-                    checked={showPassword}
-                    onChange={handleCheckboxChange}
-                />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Button variant="info" type="submit">Đăng nhập</Button>
-            </Form.Group>
-        </Form>
-    </>
+    return <div className="d-flex justify-content-center" style={{ height: '420px' }}>
+        <div style={{
+            marginTop: '15px',
+            width: '400px',
+            border: '1px solid #ccc',
+            borderRadius: '10px',
+            padding: '20px',
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+        }}>
+            <h1 className="text-center text-dark">ĐĂNG NHẬP</h1>
+            <Form onSubmit={login}>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Tên đăng nhập</Form.Label>
+                    <Form.Control value={username} onChange={e => setUserName(e.target.value)} type="text" placeholder="Tên đăng nhập" isInvalid={!!loginErrors.username} />
+                    <Form.Control.Feedback type="invalid">
+                        {loginErrors.username}
+                    </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Mật khẩu</Form.Label>
+                    <Form.Control type={showPassword ? "text" : "password"} value={password} onChange={e => setPassword(e.target.value)} placeholder="Mật khẩu" isInvalid={!!loginErrors.password} />
+                    <Form.Control.Feedback type="invalid">
+                        {loginErrors.password}
+                    </Form.Control.Feedback>
+                    <Form.Check
+                        style={{ marginTop: '8px' }}
+                        type="checkbox"
+                        label="Hiện mật khẩu"
+                        checked={showPassword}
+                        onChange={handleCheckboxChange}
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3 d-flex justify-content-center">
+                    <Button style={{ marginTop: '15px' }} variant="info" type="submit">Đăng nhập</Button>
+                </Form.Group>
+            </Form>
+        </div>
+    </div>
 
 }
 

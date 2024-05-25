@@ -19,6 +19,8 @@ import AddRoom from "./components/admin/AddRoom";
 import DetailUser from "./components/admin/DetailUser";
 import UpdateUser from "./components/admin/UpdateUser";
 import Revenue from "./components/admin/Revenue";
+import backgroundImage from './image/th.jpg';
+
 
 
 export const cookie = new Cookies();
@@ -43,6 +45,14 @@ const App = () => {
   return (
     <MyUserContext.Provider value={[user, dispatch]}>
       <MyCartContext.Provider value={[cartCounter, cartDispatch]}>
+      <div style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column'
+        }}>
         <BrowserRouter>
           <Header />
           <Container>
@@ -62,6 +72,7 @@ const App = () => {
           </Container>
           <Footer />
         </BrowserRouter>
+        </div>
       </MyCartContext.Provider>
     </MyUserContext.Provider>
   )

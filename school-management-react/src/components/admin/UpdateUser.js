@@ -95,65 +95,75 @@ const UpdateUser = () => {
     if (user === null)
         return <CustomSpinner />
 
-    return <>
-        <h1 className="text-center text-info mt-2">CẬP NHẬT NGƯỜI DÙNG</h1>
-        <Form onSubmit={updateUser}>
-            <Form.Group className="mb-3">
-                <Form.Label>Họ và tên đêm:</Form.Label>
-                <Form.Control type="text" value={user.lastName} onChange={(e) => change(e, "lastName")} placeholder="Họ và tên đệm" required />
-            </Form.Group>
-            <Form.Group className="mb-3">
-                <Form.Label>Tên:</Form.Label>
-                <Form.Control type="text" value={user.firstName} onChange={(e) => change(e, "firstName")} placeholder="Tên" required />
-            </Form.Group>
-            <Form.Group className="mb-3">
-                <Form.Label>Tên đăng nhập:</Form.Label>
-                <Form.Control type="text" value={user.username} onChange={(e) => change(e, "username")} placeholder="Tên đăng nhập" required />
-            </Form.Group>
-            <Form.Group className="mb-3">
-                <Form.Label>Mật khẩu:</Form.Label>
-                <Form.Control type={showPassword ? "text" : "password"} onChange={(e) => change(e, "password")} value={user.password} placeholder="Mật khẩu" required />
-                <Form.Check
-                    type="checkbox"
-                    label="Hiện mật khẩu"
-                    checked={showPassword}
-                    onChange={handleCheckboxChange}
-                />
-            </Form.Group>
-            <Form.Group className="mb-3">
-                <Form.Label>Email:</Form.Label>
-                <Form.Control onChange={(e) => change(e, "email")} type="email" value={user.email} placeholder="Email" required />
-            </Form.Group>
-            <Form.Group className="mb-3">
-                <Form.Label>Số điện thoại:</Form.Label>
-                <Form.Control onChange={(e) => change(e, "phone")} type="phone" value={user.phone} placeholder="Số điện thoại" required />
-            </Form.Group>
-            <Form.Group className="mb-3">
-                <Form.Label>Quyền </Form.Label>
-                <Form.Select onChange={(e) => change(e, 'roleID')} value={user.roleID} required>
-                    <option>Chọn quyền</option>
-                    {roles.map((r) => (
-                        <option key={r.roleID} value={r.roleID}>{r.roleName}</option>
-                    ))}
-                </Form.Select>
-                {/* {addRoomError.roomTypeID && <p style={{ color: "red" }}>{addRoomError.roomTypeID}</p>} */}
-            </Form.Group>
-            <Form.Group className="mb-3">
-                <Form.Label>Ảnh phòng học</Form.Label>
-                <Form.Control type="file" ref={avatar} />
-                {/* {addRoomError.roomImage && <p style={{ color: "red" }}>{addRoomError.roomImage}</p>} */}
-            </Form.Group>
-            <Form.Group className="mb-3">
-                {updateUserLoading === true ? (
-                    <CustomSpinner />
-                ) : (
-                    <Button variant="info" type="submit">
-                        Cập nhật
-                    </Button>
-                )}
-            </Form.Group>
-        </Form>
-    </>
+    return <div className="d-flex justify-content-center" style={{ height: '890px' }}>
+        <div style={{
+            marginTop: '15px',
+            width: '600px',
+            border: '1px solid #ccc',
+            borderRadius: '10px',
+            padding: '20px',
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+        }}>
+            <h1 className="text-center text-dark mt-2">CẬP NHẬT NGƯỜI DÙNG</h1>
+            <Form onSubmit={updateUser}>
+                <Form.Group className="mb-3">
+                    <Form.Label>Họ và tên đêm:</Form.Label>
+                    <Form.Control type="text" value={user.lastName} onChange={(e) => change(e, "lastName")} placeholder="Họ và tên đệm" required />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Tên:</Form.Label>
+                    <Form.Control type="text" value={user.firstName} onChange={(e) => change(e, "firstName")} placeholder="Tên" required />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Tên đăng nhập:</Form.Label>
+                    <Form.Control type="text" value={user.username} onChange={(e) => change(e, "username")} placeholder="Tên đăng nhập" required />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Mật khẩu:</Form.Label>
+                    <Form.Control type={showPassword ? "text" : "password"} onChange={(e) => change(e, "password")} value={user.password} placeholder="Mật khẩu" required />
+                    <Form.Check
+                        type="checkbox"
+                        label="Hiện mật khẩu"
+                        checked={showPassword}
+                        onChange={handleCheckboxChange}
+                        style={{marginTop: '10px'}}
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Email:</Form.Label>
+                    <Form.Control onChange={(e) => change(e, "email")} type="email" value={user.email} placeholder="Email" required />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Số điện thoại:</Form.Label>
+                    <Form.Control onChange={(e) => change(e, "phone")} type="phone" value={user.phone} placeholder="Số điện thoại" required />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Quyền </Form.Label>
+                    <Form.Select onChange={(e) => change(e, 'roleID')} value={user.roleID} required>
+                        <option>Chọn quyền</option>
+                        {roles.map((r) => (
+                            <option key={r.roleID} value={r.roleID}>{r.roleName}</option>
+                        ))}
+                    </Form.Select>
+                    {/* {addRoomError.roomTypeID && <p style={{ color: "red" }}>{addRoomError.roomTypeID}</p>} */}
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Ảnh phòng học</Form.Label>
+                    <Form.Control type="file" ref={avatar} />
+                    {/* {addRoomError.roomImage && <p style={{ color: "red" }}>{addRoomError.roomImage}</p>} */}
+                </Form.Group>
+                <Form.Group className="mb-3 d-flex justify-content-center">
+                    {updateUserLoading === true ? (
+                        <CustomSpinner />
+                    ) : (
+                        <Button style={{marginTop: '10px'}} variant="info" type="submit">
+                            Cập nhật
+                        </Button>
+                    )}
+                </Form.Group>
+            </Form>
+        </div>
+    </div>
 }
 
 export default UpdateUser;

@@ -8,12 +8,14 @@ import com.doannganh.quanlytruonghoc.models.Comment;
 import com.doannganh.quanlytruonghoc.models.Room;
 import com.doannganh.quanlytruonghoc.models.User;
 import com.doannganh.quanlytruonghoc.repository.CommentRepository;
+import com.doannganh.quanlytruonghoc.repository.UserRepository;
 import com.doannganh.quanlytruonghoc.service.CommentService;
 import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 /**
@@ -31,6 +33,9 @@ public class CommentServiceImpl implements CommentService {
 
     @Autowired
     private UserDetailsServiceImpl userDetailServiceImpl;
+    
+    @Autowired
+    private UserRepository userRepo;
 
     @Override
     public List<Comment> getComments(int roomID) {
@@ -43,7 +48,8 @@ public class CommentServiceImpl implements CommentService {
 
         Room room = this.roomServiceImpl.findRoomByRoomID(roomID);
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = (User) this.userDetailServiceImpl.loadUserByUsername(authentication.getName());
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        User user = this.userRepo.findByUsername(userDetails.getUsername());
         comment.setUserID(user);
         comment.setRoomID(room);
         comment.setCommentID(null);

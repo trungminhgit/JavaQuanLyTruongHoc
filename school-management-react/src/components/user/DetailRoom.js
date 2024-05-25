@@ -68,13 +68,14 @@ const DetailRoom = () => {
 
     return <>
         {showAlertComment && <Alert variant="danger">Vui lòng nhập nội dung</Alert>}
-        <h1 className="text-center text-info mt-2">CHI TIẾT PHÒNG ({room.roomName})</h1>
+        <h1 className="text-center text-dark mt-2">CHI TIẾT PHÒNG ({room.roomName})</h1>
         <Row>
             <Col md={5} xs={6} className="text-center">
                 <Image src={room.roomImage} rounded fluid />
             </Col>
             <Col md={5} xs={6}>
-                <h2 className="text-danger">{room.roomName}</h2>
+                
+                <p style={{marginTop:'15px'}}><span style={{ fontWeight: 'bold'}}>Tên phòng:</span> {room.roomName}</p>
                 <p><span style={{ fontWeight: 'bold' }}>Loại phòng:</span> {room.roomTypeID.roomTypeName}</p>
                 <p><span style={{ fontWeight: 'bold' }}>Số lượng chỗ ngồi:</span> {room.seats}</p>
                 <p><span style={{ fontWeight: 'bold' }}>Giá:</span> {room.price} VNĐ</p>
@@ -83,7 +84,6 @@ const DetailRoom = () => {
             </Col>
         </Row>
         <hr />
-
 
         {userID === null ? <p>Vui lòng <Link to={url}>đăng nhập</Link> để thêm đánh giá! </p> : <>
             <Form.Control as="textarea" aria-label="With textarea" value={description} onChange={e => setDescription(e.target.value)} placeholder="Nội dung đánh giá" />

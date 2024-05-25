@@ -147,48 +147,55 @@ const AddRoom = () => {
         return <CustomSpinner />;
 
     return <>
-        {roomID ? <>
-            <h1 className="text-center text-info mt-2">CẬP NHẬT PHÒNG HỌC</h1>
-            <Form onSubmit={addOrUpdateRoom}>
-                <Form.Group className="mb-3">
-                    <Form.Label>Tên phòng học</Form.Label>
-                    <Form.Control type="text" value={roomUpdate.roomName} onChange={(e) => change(e, "roomName")} placeholder="Tên phòng" required />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Giá</Form.Label>
-                    <Form.Control type="text" value={roomUpdate.price} onChange={(e) => change(e, "price")} placeholder="Giá" required />
-                    {addRoomError.price && <p style={{ color: "red" }}>{addRoomError.price}</p>}
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Số chỗ ngồi</Form.Label>
-                    <Form.Control type="text" value={roomUpdate.seats} onChange={(e) => change(e, "seats")} placeholder="Số chỗ ngồi" required />
-                    {addRoomError.seats && <p style={{ color: "red" }}>{addRoomError.seats}</p>}
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Tiện ích</Form.Label>
-                    <Form.Control onChange={(e) => change(e, "utilities")} type="text" value={roomUpdate.utilities} placeholder="Tiện ích" required />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Mô tả</Form.Label>
-                    <Form.Control onChange={(e) => change(e, "description")} type="text" value={roomUpdate.description} placeholder="Mô tả" required />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Loại phòng </Form.Label>
-                    <Form.Select onChange={(e) => change(e, 'roomTypeID')} value={roomUpdate.roomTypeID} required>
-                        <option>Chọn loại phòng</option>
-                        {roomTypes.map((r) => (
-                            <option key={r.roomTypeID} value={r.roomTypeID}>{r.roomTypeName}</option>
-                        ))}
-                    </Form.Select>
-                    {addRoomError.roomTypeID && <p style={{ color: "red" }}>{addRoomError.roomTypeID}</p>}
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Ảnh phòng học</Form.Label>
-                    <Form.Control type="file" ref={roomImage} />
-                    {addRoomError.roomImage && <p style={{ color: "red" }}>{addRoomError.roomImage}</p>}
-                </Form.Group>
-                <div style={{ display: "grid", placeItems: "center", gridAutoFlow: "column" }}>
-                    <Form.Group className="mb-3" style={{ marginRight: "5px", marginLeft: "550px" }}>
+        {roomID ? <div className="d-flex justify-content-center" style={{ height: '800px' }}>
+            <div style={{
+                marginTop: '15px',
+                width: '800px',
+                border: '1px solid #ccc',
+                borderRadius: '10px',
+                padding: '20px',
+                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+            }}>
+                <h1 className="text-center text-dark mt-2">CẬP NHẬT PHÒNG HỌC</h1>
+                <Form onSubmit={addOrUpdateRoom}>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Tên phòng học</Form.Label>
+                        <Form.Control type="text" value={roomUpdate.roomName} onChange={(e) => change(e, "roomName")} placeholder="Tên phòng" required />
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Giá</Form.Label>
+                        <Form.Control type="text" value={roomUpdate.price} onChange={(e) => change(e, "price")} placeholder="Giá" required />
+                        {addRoomError.price && <p style={{ color: "red" }}>{addRoomError.price}</p>}
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Số chỗ ngồi</Form.Label>
+                        <Form.Control type="text" value={roomUpdate.seats} onChange={(e) => change(e, "seats")} placeholder="Số chỗ ngồi" required />
+                        {addRoomError.seats && <p style={{ color: "red" }}>{addRoomError.seats}</p>}
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Tiện ích</Form.Label>
+                        <Form.Control onChange={(e) => change(e, "utilities")} type="text" value={roomUpdate.utilities} placeholder="Tiện ích" required />
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Mô tả</Form.Label>
+                        <Form.Control onChange={(e) => change(e, "description")} type="text" value={roomUpdate.description} placeholder="Mô tả" required />
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Loại phòng </Form.Label>
+                        <Form.Select onChange={(e) => change(e, 'roomTypeID')} value={roomUpdate.roomTypeID} required>
+                            <option>Chọn loại phòng</option>
+                            {roomTypes.map((r) => (
+                                <option key={r.roomTypeID} value={r.roomTypeID}>{r.roomTypeName}</option>
+                            ))}
+                        </Form.Select>
+                        {addRoomError.roomTypeID && <p style={{ color: "red" }}>{addRoomError.roomTypeID}</p>}
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Ảnh phòng học</Form.Label>
+                        <Form.Control type="file" ref={roomImage} />
+                        {addRoomError.roomImage && <p style={{ color: "red" }}>{addRoomError.roomImage}</p>}
+                    </Form.Group>
+                    <Form.Group className="mb-3 d-flex justify-content-center" style={{ height: '38px', marginTop: '40px'}}>
                         {addRoomLoading === true ? (
                             <CustomSpinner />
                         ) : (
@@ -196,75 +203,77 @@ const AddRoom = () => {
                                 Cập nhật
                             </Button>
                         )}
-                    </Form.Group>
-                    <Form.Group className="mb-3" style={{ marginRight: "550px" }}>
-                        <Link to="/" className="mt-2">
-                            <Button variant="info" type="submit">
+                        <Link to="/">
+                            <Button variant="info" type="submit" style={{ marginLeft: '10px' }}>
                                 Hủy
                             </Button>
                         </Link>
                     </Form.Group>
-                </div>
-            </Form> </> : <>
-            <h1 className="text-center text-info mt-2">THÊM PHÒNG HỌC</h1>
-            <Form onSubmit={addOrUpdateRoom}>
-                <Form.Group className="mb-3">
-                    <Form.Label>Tên phòng học</Form.Label>
-                    <Form.Control type="text" onChange={(e) => changeAddRoom(e, "roomName")} placeholder="Tên phòng" required />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Giá</Form.Label>
-                    <Form.Control type="text" onChange={(e) => changeAddRoom(e, "price")} placeholder="Giá" required />
-                    {addRoomError.price && <p style={{ color: "red" }}>{addRoomError.price}</p>}
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Số chỗ ngồi</Form.Label>
-                    <Form.Control type="text" onChange={(e) => changeAddRoom(e, "seats")} placeholder="Số chỗ ngồi" required />
-                    {addRoomError.seats && <p style={{ color: "red" }}>{addRoomError.seats}</p>}
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Tiện ích</Form.Label>
-                    <Form.Control onChange={(e) => changeAddRoom(e, "utilities")} type="text" placeholder="Tiện ích" required />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Mô tả</Form.Label>
-                    <Form.Control onChange={(e) => changeAddRoom(e, "description")} type="text" placeholder="Mô tả" required />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Loại phòng </Form.Label>
-                    <Form.Select onChange={(e) => changeAddRoom(e, 'roomTypeID')} required>
-                        <option>Chọn loại phòng</option>
-                        {roomTypes.map((r) => (
-                            <option key={r.roomTypeID} value={r.roomTypeID}>{r.roomTypeName}</option>
-                        ))}
-                    </Form.Select>
-                    {addRoomError.roomTypeID && <p style={{ color: "red" }}>{addRoomError.roomTypeID}</p>}
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Ảnh phòng học</Form.Label>
-                    <Form.Control type="file" ref={roomImage} />
-                    {addRoomError.roomImage && <p style={{ color: "red" }}>{addRoomError.roomImage}</p>}
-                </Form.Group>
-                <div style={{ display: "grid", placeItems: "center", gridAutoFlow: "column" }}>
-                    <Form.Group className="mb-3" style={{ marginRight: "5px", marginLeft: "550px" }}>
-                        {addRoomLoading === true ? (
-                            <CustomSpinner />
-                        ) : (
-                            <Button variant="info" type="submit">
-                                Thêm
-                            </Button>
-                        )}
+                </Form> </div> </div> : <div className="d-flex justify-content-center" style={{ height: '800px' }}>
+            <div style={{
+                marginTop: '15px',
+                width: '800px',
+                border: '1px solid #ccc',
+                borderRadius: '10px',
+                padding: '20px',
+                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+            }}>
+                <h1 className="text-center text-dark mt-2">THÊM PHÒNG HỌC</h1>
+                <Form onSubmit={addOrUpdateRoom}>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Tên phòng học</Form.Label>
+                        <Form.Control type="text" onChange={(e) => changeAddRoom(e, "roomName")} placeholder="Tên phòng" required />
                     </Form.Group>
-                    <Form.Group className="mb-3" style={{ marginRight: "550px" }}>
-                        <Link to="/" className="mt-2">
-                            <Button variant="info" type="submit">
-                                Hủy
-                            </Button>
-                        </Link>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Giá</Form.Label>
+                        <Form.Control type="text" onChange={(e) => changeAddRoom(e, "price")} placeholder="Giá" required />
+                        {addRoomError.price && <p style={{ color: "red" }}>{addRoomError.price}</p>}
                     </Form.Group>
-                </div>
-            </Form>
-        </>}
+                    <Form.Group className="mb-3">
+                        <Form.Label>Số chỗ ngồi</Form.Label>
+                        <Form.Control type="text" onChange={(e) => changeAddRoom(e, "seats")} placeholder="Số chỗ ngồi" required />
+                        {addRoomError.seats && <p style={{ color: "red" }}>{addRoomError.seats}</p>}
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Tiện ích</Form.Label>
+                        <Form.Control onChange={(e) => changeAddRoom(e, "utilities")} type="text" placeholder="Tiện ích" required />
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Mô tả</Form.Label>
+                        <Form.Control onChange={(e) => changeAddRoom(e, "description")} type="text" placeholder="Mô tả" required />
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Loại phòng </Form.Label>
+                        <Form.Select onChange={(e) => changeAddRoom(e, 'roomTypeID')} required>
+                            <option>Chọn loại phòng</option>
+                            {roomTypes.map((r) => (
+                                <option key={r.roomTypeID} value={r.roomTypeID}>{r.roomTypeName}</option>
+                            ))}
+                        </Form.Select>
+                        {addRoomError.roomTypeID && <p style={{ color: "red" }}>{addRoomError.roomTypeID}</p>}
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Ảnh phòng học</Form.Label>
+                        <Form.Control type="file" ref={roomImage} />
+                        {addRoomError.roomImage && <p style={{ color: "red" }}>{addRoomError.roomImage}</p>}
+                    </Form.Group>
+                        <Form.Group className="mb-3 d-flex justify-content-center" style={{ height: '38px', marginTop: '40px'}}>
+                            {addRoomLoading === true ? (
+                                <CustomSpinner />
+                            ) : (
+                                <Button variant="info" type="submit">
+                                    Thêm
+                                </Button>
+                            )}
+                            <Link to="/">
+                                <Button variant="info" type="submit" style={{marginLeft: '10px'}}>
+                                    Hủy
+                                </Button>
+                            </Link>
+                        </Form.Group>
+                </Form>
+            </div>
+        </div>}
     </>
 }
 

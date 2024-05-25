@@ -24,13 +24,13 @@ const DetailUser = () => {
         return <CustomSpinner />
 
     return <>
-        <h1 className="text-center text-info mt-2">CHI TIẾT NGƯỜI DÙNG</h1>
+        <h1 className="text-center text-dark mt-2">CHI TIẾT NGƯỜI DÙNG</h1>
         <Row>
             <Col md={5} xs={6} className="text-center">
                 <Image src={user.avatar} rounded fluid />
             </Col>
             <Col md={5} xs={6}>
-                <p><span style={{ fontWeight: 'bold' }}>Họ và tên đệm:</span> {user.lastName}</p>
+                <p style={{marginTop: '15px'}}><span style={{ fontWeight: 'bold' }}>Họ và tên đệm:</span> {user.lastName}</p>
                 <p><span style={{ fontWeight: 'bold' }}>Tên:</span> {user.firstName}</p>
                 <p><span style={{ fontWeight: 'bold' }}>Tên đăng nhập:</span> {user.username}</p>
                 <p><span style={{ fontWeight: 'bold' }}>Mật khẩu:</span> {user.password} </p>

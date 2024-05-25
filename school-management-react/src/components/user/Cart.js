@@ -67,7 +67,7 @@ const Cart = () => {
 
         <Table striped bordered hover>
             <thead>
-                <tr>
+                <tr style={{ textAlign: 'center', verticalAlign: 'middle' }}>
                     <th>ID</th>
                     <th>Tên phòng</th>
                     <th>Giá</th>
@@ -95,7 +95,7 @@ const Cart = () => {
 
             </tbody>
         </Table>
-        {user === null ? <p>Vui lòng <Link to="/login?next=/cart">đăng nhập</Link> để thanh toán! </p> :
+        {user === null ? <p>Vui lòng <Link to="/login?next=/cart" className="text-danger">đăng nhập</Link> để thanh toán! </p> :
             <Button variant="info" onClick={pay} className="mt-2 mb-2 float-left">Thanh toán</Button>}
     </>
 }

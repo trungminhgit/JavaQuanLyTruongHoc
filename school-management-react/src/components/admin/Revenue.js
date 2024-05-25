@@ -74,7 +74,7 @@ const WeekTab = () => {
     const handleYearChange = handlePositiveNumberChange(setYear)
     return (
         <div style={{ textAlign: 'center' }}>
-            <h2 style={{ marginBottom: '20px', color: 'Highlight' }}>THỐNG KÊ THEO TUẦN</h2>
+            <h2 style={{ marginBottom: '20px', color: 'black' }}>THỐNG KÊ THEO TUẦN</h2>
             {/* Giao diện để chọn tuần và năm */}
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px', marginTop: '50px' }}>
                 <div style={{ marginRight: '10px' }}>
@@ -140,7 +140,7 @@ const MonthTab = () => {
 
     return (
         <div style={{ textAlign: 'center' }}>
-            <h2 style={{ marginBottom: '20px', color: 'Highlight' }}>THỐNG KÊ THEO THÁNG</h2>
+            <h2 style={{ marginBottom: '20px', color: 'black' }}>THỐNG KÊ THEO THÁNG</h2>
             {/* Giao diện để chọn tuần và năm */}
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px', marginTop: '50px' }}>
                 <div style={{ marginRight: '10px' }}>
@@ -206,7 +206,7 @@ const QuarterTab = () => {
 
     return (
         <div style={{ textAlign: 'center' }}>
-            <h2 style={{ marginBottom: '20px', color: 'Highlight' }}>THỐNG KÊ THEO QUÝ</h2>
+            <h2 style={{ marginBottom: '20px', color: 'black' }}>THỐNG KÊ THEO QUÝ</h2>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px', marginTop: '50px' }}>
                 <div style={{ marginRight: '10px' }}>
                     <label style={{ marginRight: '5px', marginLeft: '15px', fontSize: '18px', fontWeight: 'bold' }}>Quý:</label>
@@ -269,7 +269,7 @@ const YearTab = () => {
 
     return (
         <div style={{ textAlign: 'center' }}>
-            <h2 style={{ marginBottom: '20px', color: 'Highlight' }}>THỐNG KÊ THEO NĂM</h2>
+            <h2 style={{ marginBottom: '20px', color: 'black' }}>THỐNG KÊ THEO NĂM</h2>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px', marginTop: '50px' }}>
                 <div>
                     <label style={{ marginRight: '2px', marginLeft: '39px', fontSize: '18px', fontWeight: 'bold' }}>Năm:</label>
